@@ -46,7 +46,8 @@ export default function RootLayout({
           `
         }} />
         <meta name="google-adsense-account" content="ca-pub-62370889" />
-      </head>
+          <meta name="baidu-site-verification" content="codeva-qUSdLl3EKv" />
+  </head>
       <body className="font-sans bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen">
         <ThemeProvider>
           <LanguageProvider>
