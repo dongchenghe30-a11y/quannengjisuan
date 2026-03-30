@@ -24,6 +24,10 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  other: {
+    'google-adsense-account': 'ca-pub-62370889',
+    'baidu-site-verification': 'codeva-qUSdLl3EKv',
+  },
 }
 
 export default function RootLayout({
@@ -34,26 +38,24 @@ export default function RootLayout({
   return (
     <html lang="zh" suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            try {
-              const theme = localStorage.getItem('theme');
-              const prefers = window.matchMedia('(prefers-color-scheme: dark)').matches;
-              if (theme === 'dark' || (!theme && prefers)) {
-                document.documentElement.classList.add('dark');
-              }
-            } catch(e) {}
-          `
-        }} />
-        <meta name="google-adsense-account" content="ca-pub-62370889" />
-          <meta name="baidu-site-verification" content="codeva-qUSdLl3EKv" />
-  </head>
+        <script dangerouslySetInnerHTML={{ __html: `
+          try {
+            const theme = localStorage.getItem('theme');
+            const prefers = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (theme === 'dark' || (!theme && prefers)) {
+              document.documentElement.classList.add('dark');
+            }
+          } catch(e) {}
+        ` }} />
+      </head>
       <body className="font-sans bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen">
         <ThemeProvider>
           <LanguageProvider>
             <FavoritesProvider>
               <Navbar />
-              <main>{children}</main>
+              <main>
+                {children}
+              </main>
               <Footer />
             </FavoritesProvider>
           </LanguageProvider>
